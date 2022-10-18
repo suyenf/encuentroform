@@ -15,7 +15,15 @@ class RecordsController extends Controller
      */
     public function index()
     {
-        //
+        /** @var Record[] $datos */
+        $datos = Record::all();
+
+        return view('registro.index',compact('datos'));
+    }
+    public function pdf()
+    {
+        $records = Record::paginate();
+        return view('records.pdf');
     }
 
     /**
@@ -48,9 +56,10 @@ class RecordsController extends Controller
      * @param \App\Models\Record $record
      * @return \Illuminate\Http\Response
      */
-    public function show(Record $record)
+    public function show()
     {
-        //
+        $datos = Record::all();
+        return view('registro.home',compact('datos'));
     }
 
     /**
@@ -105,8 +114,9 @@ class RecordsController extends Controller
         return redirect(route('records.edit', $record));
     }
 
-    public function peopleDestroy(Person $person)
+    public function peopleDestroy(Record $record, Person $person)
     {
-        //
+        $person->delete();
+        return redirect(route('records.edit', $record));
     }
 }
