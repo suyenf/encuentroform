@@ -6,6 +6,14 @@
                 <div class="card">
                     <div class="card-header">{{ __('Family Branch') }}</div>
                     <div class="card-body">
+
+                        @if($record->locked)
+                            <div class='bg-danger'>
+                            Bloqueado
+                            </div>
+
+                        @endif
+
                         <table class="table">
                             <tbody>
                             <tr>
@@ -38,7 +46,7 @@
                                 <td>Gender</td>
                                 <td>Dob</td>
                                 <td>Age</td>
-                                <td>Actions </td>
+                                <td>Actions</td>
                             </tr>
                             @foreach($record->people as $person)
                                 <tr>
@@ -86,12 +94,11 @@
                         </table>
 
                         @if($record->people->count() && !$record->locked)
-                            {{--para completar el formulario--}}
-                            {{--debe bloquear el registro en la tabla records [locked = 1]--}}
-                            {{--esto pera prevenir intrisiones y modificaciones--}}
-                            {{--se debe  crear la ruta el metodo en el controlador y el proceso del mismo--}}
-                            <form action="" class="text-end">
-                                <button type="submit" class="btn btn-primary">Mark Complete</button>
+                            <form action="{{route('records.lock',$record->id)}}" method='post' class="text-end">
+                                @csrf
+                                <button type='submit'  class="btn btn-primary ">
+                                    Mark as Complete
+                                </button>
                             </form>
                         @endif
                     </div>
