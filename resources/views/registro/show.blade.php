@@ -61,7 +61,7 @@
 
 
                         </table>
-
+<a class="btn btn-primary" href="https://ramadefamilia.itnazca.com/">Close</a>
 
                     </div>
                 </div>
@@ -69,3 +69,5 @@
         </div>
     </div>
 @endsection
+{{--@include('mail.organization')--}}
+{{--@include('mail.owner')--}}

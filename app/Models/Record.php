@@ -21,6 +21,10 @@ class Record extends Model
     protected $casts=[
         'locked'=>'boolean',
     ];
+    /**
+     * @var mixed
+     */
+    private $email;
 
     public function people(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

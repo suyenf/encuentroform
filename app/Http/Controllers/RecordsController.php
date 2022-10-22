@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Mail\OrganizationRecordCompleted;
 use App\Mail\OwnerRecordCompleted;
+use App\Models\Event;
 use App\Models\Person;
 use App\Models\Record;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class RecordsController extends Controller
 {
@@ -19,9 +22,9 @@ class RecordsController extends Controller
      */
     public function index()
     {
-        /** @var Record[] $datos */
-        $datos = Record::all();
-        return view('registro.index', compact('datos'));
+//        /** @var Record[] $datos */
+//        $datos = Record::all();
+//        return view('registro.index', compact('datos'));
     }
 
     public function pdf()
@@ -37,7 +40,9 @@ class RecordsController extends Controller
      */
     public function create()
     {
-        return view('registro.create');
+        $event = Event::find(4);
+        $img_url = Storage::disk('public')->url($event->image);
+        return view('registro.create', ['event' => $event, 'img_url' => $img_url]);
     }
 
     /**
@@ -48,6 +53,7 @@ class RecordsController extends Controller
      */
     public function store(Request $request)
     {
+        $event = Event::find(4);
         // recogemos la data
         $valid_data = $request->all();
         $valid_data['locked'] = true;
@@ -63,7 +69,7 @@ class RecordsController extends Controller
         }
 
         // notificar al dueño
-         Mail::send(new OwnerRecordCompleted($new_record));
+        Mail::send(new OwnerRecordCompleted($new_record, $event));
 
         // notificar al organizador
         Mail::send(new OrganizationRecordCompleted($new_record));
@@ -149,8 +155,7 @@ class RecordsController extends Controller
         // se bloquea el registro que viene desde parametros
         $record->update(['locked' => true,]); //este se bloquea el registro
 
-        // se envia a un correo al dueño y a los afectados o lo que fuese
-        // se envia al dueño  //  CON ESTE COMANDO SE CREA LA PLANTILLA = php artisan make:mail OwnerRecordCompleted
+        // se envia a un correo al que se registra//  CON ESTE COMANDO SE CREA LA PLANTILLA = php artisan make:mail OwnerRecordCompleted
         Mail::send(new OwnerRecordCompleted($record));
 
 
@@ -170,6 +175,12 @@ class RecordsController extends Controller
 //        return view ('registro.edit', ['smj' => $msj]);
 ////        return view('registro.locked');
     }
+//    public function counting(Record $record){
+//$record = DB::table('records')
+//->select(DB::raw('sum('qty') as Total'))
+//->groupBy('They will attend')
+//->get();
+//}
 
 
 }

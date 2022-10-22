@@ -6,7 +6,18 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Registration') }}</div>
+{{--                    @if($event->image)--}}
+{{--                    <img alt="" width="614" style="height:auto;display:block;" src="{{  $event->image}}"/>--}}
+{{--                    <img alt="" width="512" style="height:auto;display:block;"--}}
+{{--                         src="{{asset("storage/uploads/event.jpg")}}"/>--}}
+
+
                     <div class="card-body">
+{{--                        <div class="row mb-3">--}}
+
+{{--                            <h4>{{$event->text}}</h4>--}}
+{{--                        <img alt="" class="img-fluid rounded" src="{{ $img_url }}"/>--}}
+
                         <form action="{{route('records.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
