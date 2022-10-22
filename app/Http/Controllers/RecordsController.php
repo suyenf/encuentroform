@@ -19,9 +19,9 @@ class RecordsController extends Controller
      */
     public function index()
     {
-        /** @var Record[] $datos */
-        $datos = Record::all();
-        return view('registro.index', compact('datos'));
+//        /** @var Record[] $datos */
+//        $datos = Record::all();
+//        return view('registro.index', compact('datos'));
     }
 
     public function pdf()

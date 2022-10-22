@@ -122,7 +122,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding:30px;background:#f7dede;">
+                    <td style="padding:30px;background:#d2e5f2;">
                         <table role="presentation"
                                style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
                             <tr>

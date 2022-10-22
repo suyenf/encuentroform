@@ -18,9 +18,6 @@
         table, td, div, h1, p {
             font-family: Arial, sans-serif;
         }
-        /*table, td {*/
-        /*    border: 1px solid #000000 !important;*/
-        /*}*/
     </style>
 </head>
 <body style="margin:0;padding:0;">
@@ -32,8 +29,9 @@
                 <tr>
                     <td align="center" style="padding:40px 0 30px 0;background:#d2e5f2;">
                         <h2>Schoenstatt Houston Family Encounter</h2>
-                        <img src="{{URL::asset('images/logo.png')}}"/>
-{{--                        <img src="images/logo.png" alt="" width="130" style="height:auto;display:block;"/>--}}
+                        <img alt="" width="130" style="height:auto;display:block;"
+                             src="{{URL::asset('images/logo.png')}}"/>
+                        {{--                        <img src="logo.png" alt="" width="130" style="height:auto;display:block;" />--}}
                     </td>
                 </tr>
                 <tr>
@@ -99,13 +97,16 @@
                                     <table role="presentation"
                                            style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
                                         <tr>
-                                            <td style="background-color: #e4e4e4; text-align: center; padding: 0">Name
+                                            <td style="background-color: #fafff0; text-align: center; padding: 0">Name
                                             </td>
-                                            <td style="background-color: #e4e4e4; text-align: center; padding: 0">Gender
+                                            <td style="background-color: #fafff0; text-align: center; padding: 0">
+                                                Gender
                                             </td>
                                             {{--        <td>Dob</td>--}}
-                                            <td style="background-color: #e4e4e4; text-align: center; padding: 0">Age</td>
+                                            <td style="background-color: #fafff0; text-align: center; padding: 0">Age
+                                            </td>
                                         </tr>
+
                                         @foreach($record->people as $person)
                                             <tr>
                                                 <td style="width:260px;padding:0;vertical-align:top;"> {{$person->name}}</td>
@@ -115,14 +116,37 @@
                                             </tr>
                                             @endforeach
                                             </tr>
+
                                     </table>
                                 </td>
+
                             </tr>
                         </table>
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding:30px;background:#f7dede;">
+                    <td style="padding:30px;background:#d2e5f2;">
+                <tr>
+                    <td align="center" style="padding:4px 0 30px 0;background:#d2e5f2;">
+                        <h1>Scheduled Events</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel metus et nisi suscipit
+                            tempor. </p>
+                        <p>Nulla quis augue congue, aliquet purus quis, gravida felis.</p>
+                        <p>Sed eget nunc ut est vulputate consectetur et ac quam. </p>
+                        <p> In non lacinia augue. Phasellus maximus pretium sem, et volutpat turpis vestibulum
+                            vitae.</p>
+                        <p>Fusce sit amet auctor lacus, condimentum tristique dui. </p>
+                        <p>Ut non pellentesque orci. Suspendisse tincidunt libero vel metus auctor iaculis.</p>
+
+                        <img alt="" width="600" style="height:auto;display:block;"
+                             src="{{URL::asset('images/event.jpg')}}"/>
+                        {{--                        <img src="event.jpg" alt="" width="600" style="height:auto;display:block;" />--}}
+                    </td>
+                </tr>
+                </td>
+                </tr>
+                <tr>
+                    <td style="padding:30px;background:#d2e5f2;">
                         <table role="presentation"
                                style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
                             <tr>
@@ -137,6 +161,7 @@
                         </table>
                     </td>
                 </tr>
+
             </table>
         </td>
     </tr>
