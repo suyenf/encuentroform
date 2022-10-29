@@ -31,10 +31,14 @@ class OrganizationRecordCompleted extends Mailable
     {
         return $this
             ->subject('New Record') //Asunto en el mensaje
+            ->setAddress('whtinar@gmail.com') //direccion primaria a quien le va a llegar el correo
             ->setAddress('suyenfaudito@gmail.com') //direccion primaria a quien le va a llegar el correo
 //            ->setAddress($this->record->setDateFormat('email'))
             ->setAddress('mncisneros@hotmail.com') //direccion primaria a quien le va a llegar el correo
-            ->setAddress('whtinar@gmail.com') //direccion primaria a quien le va a llegar el correo
+            ->setAddress('shoenstanttconroe@gmail.com') //direccion primaria a quien le va a llegar el correo
+            ->setAddress('schoenstattconroe@gmail.com') //direccion primaria a quien le va a llegar el correo
+            ->setAddress('jochoa@inazca.com') //direccion primaria a quien le va a llegar el correo
+            ->setAddress('mncisneros@hotmail.com') //direccion primaria a quien le va a llegar el correo
             ->view('mail.organization' , [ //el blade donde esta el formato del correo
                 'record'=> $this->record,
             ]);

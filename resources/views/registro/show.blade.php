@@ -61,7 +61,7 @@
 
 
                         </table>
-<a class="btn btn-primary" href="https://ramadefamilia.itnazca.com/">Close</a>
+<a class="btn btn-primary" href="{{ route('records.create')}}">Close</a>
 
                     </div>
                 </div>

@@ -30,7 +30,6 @@ class OwnerRecordCompleted extends Mailable
         $this->event  = $event;
     }
 
-
     /**
      * Build the message.
      *
@@ -53,4 +52,3 @@ class OwnerRecordCompleted extends Mailable
         ]);
     }
 }
-

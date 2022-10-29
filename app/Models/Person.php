@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Person extends Model
+class Person extends Model // singular  uno
 {
     use HasFactory;
 
@@ -21,8 +21,8 @@ class Person extends Model
     ];
 
 
-    public function record(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function record(): \Illuminate\Database\Eloquent\Relations\BelongsTo // RELACION
     {
-        return $this->belongsTo(Record::class);
+        return $this->belongsTo(Record::class); // belongs to // pertenece a
     }
 }

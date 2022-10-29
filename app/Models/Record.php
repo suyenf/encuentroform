@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Record extends Model
+class Record extends Model // singular uno
 {
     use HasFactory;
 
@@ -26,8 +26,8 @@ class Record extends Model
      */
     private $email;
 
-    public function people(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function people(): \Illuminate\Database\Eloquent\Relations\HasMany  // relacion
     {
-        return $this->hasMany(Person::class);
+        return $this->hasMany(Person::class); // has many // tiene muchos/as
     }
 }

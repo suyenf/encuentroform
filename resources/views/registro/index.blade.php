@@ -21,7 +21,7 @@
                     <div>
                         <div class="card-body">
                             Adults
-                            <h2>5</h2>
+                            <h2>{{ $adults }}</h2>
                         </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                         <a class="small text-white stretched-link"  href="#">View Details</a>
