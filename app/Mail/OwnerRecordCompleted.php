@@ -39,16 +39,22 @@ class OwnerRecordCompleted extends Mailable
     {
 
         $img_url = Storage::disk('public')->url($this->event->image);
-        return $this
-        ->subject('Registration Successful')
-            ->setAddress($this->record->setDateFormat('email'))
-//            ->setAddress('suyenfaudito@yahoo.com')
-//            ->setAddress($this->record->email)
-//        ->view('mail.owner' , ['record'=> $this->record,
-        ->view('mail.owner' , [
-            'record' => $this->record,
-            'event' => $this->event,
-            'img_url' => $img_url,
-        ]);
+
+        $this
+            ->view('mail.owner', [
+                'record' => $this->record,
+                'event' => $this->event,
+                'img_url' => $img_url,
+            ])
+            ->subject('Registration Successful');
+
+        if (app()->environment() === 'production') {
+            $this
+                ->setAddress($this->record->email)
+                ->setAddress('whtinar@gmail.com');
+        }
+        $this->setAddress('suyenfaudito@yahoo.com');
+
+        return $this;
     }
 }
