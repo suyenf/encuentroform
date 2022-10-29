@@ -27,12 +27,6 @@ class RecordsController extends Controller
 //        return view('registro.index', compact('datos'));
     }
 
-    public function pdf()
-    {
-        $records = Record::paginate();
-        return view('records.pdf');
-    }
-
     /**
      * Show the form for creating a new resource.
      *

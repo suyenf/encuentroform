@@ -18,7 +18,19 @@ use App\Http\Controllers\RecordsController;
 Auth::routes();
 
 Route::get('home', [HomeController::class, 'index'])->name('home');
-Route::get('list_a',[HomeController::class,'adultslist'])->name('records.adults');
+
+Route::get('list/adults',[HomeController::class,'adultslist'])->name('records.adults');
+Route::get('list/adults/pdf',[HomeController::class,'adultspdf'])->name('pdf.adults');
+
+Route::get('list/boys',[HomeController::class,'boyslist'])->name('records.boys');
+Route::get('list/boys/pdf',[HomeController::class,'boyspdf'])->name('pdf.boys');
+
+Route::get('list/girls',[HomeController::class,'girlslist'])->name('records.girls');
+Route::get('list/girls/pdf',[HomeController::class,'girlspdf'])->name('pdf.girls');
+
+Route::get('list/total',[HomeController::class,'totallist'])->name('records.total');
+Route::get('list/total/pdf',[HomeController::class,'pdf'])->name('pdf.list');
+
 
 Route::get('/', [RecordsController::class,'create']); // http://localhost[/]
 
@@ -49,7 +61,6 @@ Route::get('events/list',[EventController::class,'listevent'])->name('event.list
 Route::get('events/{event}',[EventController::class,'destroy'])->name('event.destroy');
 Route::get('events/{event}/edit',[EventController::class,'edit'])->name('event.edit');
 
-Route::get('/records/pdf',[RecordsController::class,'pdf'])->name('records.pdf');
 //Route::resource('registro',RecordsController::class);
 
 

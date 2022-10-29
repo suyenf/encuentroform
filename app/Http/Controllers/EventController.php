@@ -4,11 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
-use App\Mail\OrganizationRecordCompleted;
-use App\Mail\OwnerRecordCompleted;
-use App\Models\Event;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
@@ -53,20 +48,12 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $eventInfo = $request->all();
-//        if ($request->hasFile('image')) {
-//            $eventInfo['image'] = $request->file('image')->store('uploads', 'public');
-//        }
 
-        Event::create($eventInfo);
-        return response()->json($eventInfo);
-
-        // notificar al organizador
-        Mail::send(new OrganizationRecordCompleted($eventInfo));
         if ($request->hasFile('image')) {
             $eventInfo['image'] = $request->file('image')->store('uploads', 'public');
         }
-
         Event::create($eventInfo);
+
         return response()->json($eventInfo);
     }
 

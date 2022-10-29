@@ -8,7 +8,7 @@
                 <table role="presentation"
                        style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
                     <tr>
-                        <td style="padding:0;">
+                        <td>
                             <h1>Registration Successful</h1>
                             <p>This is a copy of your Registration</p>
                         </td>

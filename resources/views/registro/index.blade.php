@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h4>Records</h4>
+        <h2>Records</h2>
         <div class="row">
             {{--            <div class="col-xl-12">--}}
             {{--                <form action="">--}}
@@ -15,67 +15,10 @@
             {{--                    </div>--}}
             {{--                </form>--}}
             {{--            </div>--}}
-<div class="row">
-            <div class="col-xl-3 col-md-3">
-                <div class="card bg-primary text-white mb-4">
-                    <div>
-                        <div class="card-body">
-                            Adults
-                            <h2>{{ $adults }}</h2>
-                        </div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link"  href="#">View Details</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-                </div>
+            @include('layouts.banner')
 
-            <div class="col-xl-3 col-md-3">
-                <div class="card bg-info text-white mb-4">
-                    <div>
-                        <div class="card-body">
-                            Boys
-                            <h2>{{ $boys }}</h2>
-                        </div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link"  href="#">View Details</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-                </div>
 
-                <div class="col-xl-3 col-md-3">
-                    <div class="card bg-warning text-white mb-4">
-                        <div>
-                            <div class="card-body">
-                                Girls
-                                <h2>{{ $girls }}</h2>
-                            </div>
-                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link"  href="#">View Details</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-
-                    <div class="col-xl-3 col-md-3">
-                        <div class="card bg-primary text-white mb-4">
-                            <div>
-                                <div class="card-body">
-                                    Total
-                                    <h2>{{ $countqty }}</h2>
-                                </div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link"  href="#">View Details</a>
-                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-</div>
+    </div>
             <div class="col-xl-12">
                 <div class="table-responsive">
                     <table class="table table-striped">
@@ -107,9 +50,7 @@
                         @endforeach
                         </tbody>
                     </table>
-
-                    {{$datos->links()}}
-
+                        {{$datos->links()}}
                 </div>
             </div>
         </div>
