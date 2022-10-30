@@ -9,13 +9,18 @@
 
 </head>
 <body>
-    <h2>Boys Lists</h2>
 
     <div class="col-md-12">
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
-
+            <tr>
+                <td align="center" style="padding:40px 0 30px 0;" colspan="6">
+                    <h1>Schoenstatt Houston Family Day</h1>
+                    <img alt="" width="130" style="height:auto;display:block;" src="{{storage_path('app/public/uploads/logo.png')}}" alt="logo"/>
+                    <h1>Boys Lists</h1>
+                </td>
+            </tr>
             <tr>
                 <td>#</td>
                 <td>Family Name</td>
